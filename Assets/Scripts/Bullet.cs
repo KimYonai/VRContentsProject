@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        rigid.velocity = Vector3.forward * bulletSpeed;
+        rigid.velocity = transform.forward * bulletSpeed;
         Destroy(gameObject, 3.0f);
     }
 
