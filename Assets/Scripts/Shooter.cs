@@ -22,8 +22,8 @@ public class Shooter : MonoBehaviour
     IEnumerator FireRoutine()
     {
         GameObject bulletObj = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-        rigid.velocity = bullet.transform.forward * fireSpeed;
+        //Rigidbody rigid = bullet.GetComponent<Rigidbody>();
+        //rigid.velocity = bullet.transform.forward * fireSpeed;
         yield return new WaitForSeconds(1.0f);
     }
 }

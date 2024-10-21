@@ -146,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456946857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0862, z: 0.2538}
+  m_LocalPosition: {x: 0, y: 0.0862, z: 0.2725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 1
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2147895002730076875, guid: 12ec307e4794d5343818153e0717ee71, type: 3}
   firePoint: {fileID: 456946858}
-  fireSpeed: 10
+  fireSpeed: 500
 --- !u!1 &1431690033
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +959,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555345355}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.042900007, y: 0.17160007, z: 0.07446122}

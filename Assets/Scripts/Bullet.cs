@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] Rigidbody rigid;
+    [SerializeField] float bulletSpeed;
+
     private void Start()
     {
+        rigid.velocity = Vector3.forward * bulletSpeed;
         Destroy(gameObject, 3.0f);
     }
 
