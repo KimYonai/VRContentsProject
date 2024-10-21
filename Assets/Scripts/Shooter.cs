@@ -5,8 +5,8 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject gun;
     [SerializeField] Transform firePoint;
-    [SerializeField] float fireSpeed;
     Coroutine fireRoutine;
 
     public void StartFire()
@@ -22,8 +22,6 @@ public class Shooter : MonoBehaviour
     IEnumerator FireRoutine()
     {
         GameObject bulletObj = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        //Rigidbody rigid = bullet.GetComponent<Rigidbody>();
-        //rigid.velocity = bullet.transform.forward * fireSpeed;
         yield return new WaitForSeconds(1.0f);
     }
 }
