@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody rigid;
     [SerializeField] float bulletSpeed;
+    [SerializeField] GameObject gameManager;
 
     private void Start()
     {
@@ -17,8 +18,10 @@ public class Bullet : MonoBehaviour
     {
         if (collider.gameObject.tag == "Enemy")
         {
+            GameManager manager = gameManager.GetComponent<GameManager>();
             Destroy(collider.gameObject);
             Destroy(gameObject);
+            manager.AddScore(100);
         }
     }
 }
