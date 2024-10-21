@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
 
     [SerializeField] int score;
-
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] GameObject spawner;
+    [SerializeField] bool isActive;
 
     public static GameManager Instance
     {
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        spawner.SetActive(false);
+        isActive = false;
         score = 0;
     }
 
@@ -52,5 +55,19 @@ public class GameManager : MonoBehaviour
     public void AddScore(int addScore)
     {
         score += addScore;
+    }
+
+    public void OnClickSpawnButton()
+    {
+        if (isActive == false)
+        {
+            spawner.SetActive(true);
+            isActive = true;
+        }
+        else
+        {
+            spawner.SetActive(false);
+            isActive = false;
+        }
     }
 }
