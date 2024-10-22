@@ -7,6 +7,8 @@ namespace UnityEngine.XR.Content.Interaction
     {
         IXRSelectInteractable m_SelectInteractable;
 
+        [SerializeField] AudioSource cockedSound;
+
         protected void OnEnable()
         {
             m_SelectInteractable = GetComponent<IXRSelectInteractable>();
@@ -33,6 +35,8 @@ namespace UnityEngine.XR.Content.Interaction
             var attachTransform = args.interactorObject.GetAttachTransform(m_SelectInteractable);
             var originalAttachPose = args.interactorObject.GetLocalAttachPoseOnSelect(m_SelectInteractable);
             attachTransform.SetLocalPose(originalAttachPose);
+
+            cockedSound.Play();
         }
     }
 }
