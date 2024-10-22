@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Value")]
     [SerializeField] int score;
+    [SerializeField] int highScore;
     [SerializeField] float remainTime;
     [SerializeField] bool isActive;
     public bool isTimeOver;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("Reference")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI highScoreText;
     [SerializeField] GameObject spawner;
     [SerializeField] AudioSource scoreSound;
     [SerializeField] AudioSource timeoutSound;
@@ -73,8 +75,14 @@ public class GameManager : MonoBehaviour
             isActive = false;
         }
 
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
         timeText.text = "Remain Time\n" + remainTime.ToString();
         scoreText.text = "Score : " + score.ToString();
+        highScoreText.text = "High Score : " + highScore.ToString();
     }
 
     public void AddScore(int addScore)
