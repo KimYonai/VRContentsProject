@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject spawner;
     [SerializeField] AudioSource scoreSound;
     [SerializeField] AudioSource timeoutSound;
-    Coroutine timeOut;
 
     public static GameManager Instance
     {
@@ -106,9 +105,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator TimeOut()
+    public void OnClickQuitButton()
     {
-        timeoutSound.Play();
-        yield return null;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
