@@ -10,13 +10,19 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
+    [Header("Value")]
     [SerializeField] int score;
     [SerializeField] float remainTime;
+    [SerializeField] bool isActive;
+    public bool isTimeOver;
+
+    [Header("Reference")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameObject spawner;
-    [SerializeField] bool isActive;
     [SerializeField] AudioSource scoreSound;
+    [SerializeField] AudioSource timeoutSound;
+    Coroutine timeOut;
 
     public static GameManager Instance
     {
@@ -48,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        remainTime = 60;
         score = 0;
     }
 
@@ -58,14 +65,15 @@ public class GameManager : MonoBehaviour
             remainTime -= Time.deltaTime;
         }
 
-        if (remainTime <= 0)
+        if (remainTime <= 0 && isActive == true)
         {
             remainTime = 0;
+            timeoutSound.Play();
             spawner.SetActive(false);
             isActive = false;
         }
 
-        timeText.text = "Remain Time : " + remainTime.ToString();
+        timeText.text = "Remain Time\n" + remainTime.ToString();
         scoreText.text = "Score : " + score.ToString();
     }
 
@@ -88,7 +96,11 @@ public class GameManager : MonoBehaviour
             spawner.SetActive(false);
             isActive = false;
         }
+    }
 
-        score = 0;
+    IEnumerator TimeOut()
+    {
+        timeoutSound.Play();
+        yield return null;
     }
 }
