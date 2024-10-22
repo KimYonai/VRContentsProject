@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameObject spawner;
     [SerializeField] bool isActive;
+    [SerializeField] AudioSource scoreSound;
 
     public static GameManager Instance
     {
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int addScore)
     {
         score += addScore;
+        scoreSound.Play();
     }
 
     public void OnClickSpawnButton()

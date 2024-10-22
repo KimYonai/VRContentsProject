@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour
             GameManager.Instance.AddScore(100);
             Destroy(collider.gameObject);
             Destroy(gameObject);
-            
         }
     }
 }
