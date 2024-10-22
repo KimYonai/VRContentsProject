@@ -34,6 +34,7 @@ public class RandomRespawn : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("dd");
             yield return new WaitForSeconds(2.0f);
 
             GameObject respawnTarget = Instantiate(target, RandomArea(), Quaternion.identity);

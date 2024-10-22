@@ -38,12 +38,13 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
         }
+
+        spawner.SetActive(false);
+        isActive = false;
     }
 
     private void Start()
     {
-        spawner.SetActive(false);
-        isActive = false;
         score = 0;
     }
 
@@ -69,5 +70,7 @@ public class GameManager : MonoBehaviour
             spawner.SetActive(false);
             isActive = false;
         }
+
+        score = 0;
     }
 }
